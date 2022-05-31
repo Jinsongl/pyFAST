@@ -354,11 +354,13 @@ def paramsWS_RPM_Pitch(WS, RPM, Pitch, baseDict=None, FlatInputs=False):
     def iterify(x):
         if not isinstance(x, collections.Iterable): x = [x]
         return x
+
     WS    = iterify(WS)
     RPM   = iterify(RPM)
     Pitch = iterify(Pitch)
+    is_inputs_flat = np.array(WS).ndim == 1 and np.array(RPM).ndim == 1 and np.array(Pitch).ndim == 1 
     # --- If inputs are not flat but different vectors to length through, we flatten them (TODO: meshgrid and ravel?)
-    if not flatInputs :
+    if not is_inputs_flat :
         WS_flat    = []
         Pitch_flat = []
         RPM_flat   = []
