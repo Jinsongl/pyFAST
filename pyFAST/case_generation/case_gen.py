@@ -539,7 +539,9 @@ def CPCT_LambdaPitch(refdir,main_fastfile,Lambda=None,Pitch=np.linspace(-10,40,5
     PARAMS = paramsWS_RPM_Pitch(WS_flat,RPM_flat,Pitch_flat,baseDict=baseDict, FlatInputs=True)
 
     # --- Generating all files in a workDir
-    workDir = refdir.strip('/').strip('\\')+'_CPLambdaPitch'
+    # workDir = refdir.strip('/').strip('\\')+'_CPLambdaPitch'
+    # workDir = os.path.join(refdir, 'Performance_Coefficients')
+    workDir = os.path.join('','./Performance_Coefficients')
     print('>>> Generating inputs files in {}'.format(workDir))
     RemoveAllowed=reRun # If the user want to rerun, we can remove, otherwise we keep existing simulations
     fastFiles=templateReplace(PARAMS, refdir, outputDir=workDir,removeRefSubFiles=True,removeAllowed=RemoveAllowed,main_file=main_fastfile)
