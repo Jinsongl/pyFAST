@@ -31,7 +31,6 @@ def handleRemoveReadonlyWin(func, path, exc_info):
     else:
         raise
 
-
 def forceCopyFile (sfile, dfile):
     # ---- Handling error due to wrong mod
     if os.path.isfile(dfile):
@@ -73,7 +72,6 @@ def copyTree(src, dst):
                 copyTree(s, d)
             else:
                 forceMergeFlatDir(s, d)
-
 
 def templateReplaceGeneral(PARAMS, templateDir=None, outputDir=None, main_file=None, removeAllowed=False, removeRefSubFiles=False, oneSimPerDir=False):
     """ Generate inputs files by replacing different parameters from a template file.
@@ -294,9 +292,9 @@ def removeFASTOuputs(workDir):
 # --------------------------------------------------------------------------------{
 def paramsSteadyAero(p=None):
     p = dict() if p is None else p
-    p['AeroFile|AFAeroMod']=1 # remove dynamic effects dynamic
-    p['AeroFile|WakeMod']=1 # remove dynamic inflow dynamic
-    p['AeroFile|TwrPotent']=0 # remove tower shadow
+    p['AeroFile|AFAeroMod'] =1 # remove dynamic effects dynamic
+    p['AeroFile|WakeMod']   =1 # remove dynamic inflow dynamic
+    p['AeroFile|TwrPotent'] =0 # remove tower shadow
     return p
 
 def paramsNoGen(p=None):
@@ -323,7 +321,6 @@ def paramsControllerDLL(p=None):
     p['ServoFile|YCMode']   = 5;
     p['EDFile|GenDOF']      = 'True';
     return p
-
 
 def paramsStiff(p=None):
     p = dict() if p is None else p
@@ -472,7 +469,7 @@ def createStepWind(filename,WSstep=1,WSmin=3,WSmax=25,tstep=100,dt=0.5,tmin=0,tm
 
     #print(f.toDataFrame())
     #pass
-#createStepWind('test.wnd',tstep=200,WSmax=28)
+# createStepWind('test.wnd',tstep=200,WSmax=28)
 # createStepWind('test.wnd',tstep=200,WSmin=5,WSmax=7,WSstep=2)
 
 
